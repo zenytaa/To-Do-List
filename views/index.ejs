@@ -1,0 +1,27 @@
+<%- include('partials/header.ejs') %>
+
+  <!-- CONTENT -->
+
+  <!-- Task List -->
+  <div class="container">
+    <div class="row">
+      <% if (locals.data) { %>
+        <ul class="list-group list-group-horizontal">
+          <li class="list-group-item flex-fill">
+            <%= inputTask %>
+          </li>
+          <li class="list-group-item flex-fill">
+            <%= inputDate %>
+          </li>
+          <li class="list-group-item flex-fill">Status</li>
+          <li class="list-group-item flex-fill">Actions</li>
+        </ul>
+        <% } else { %>
+          <span class="text-center py-3">There's no Task To Do</span>
+          <% } %>
+    </div>
+  </div>
+  <!-- End Of Task List -->
+
+  <!-- END OF CONTENT -->
+  <%- include('partials/footer.ejs') %>
