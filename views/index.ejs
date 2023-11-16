@@ -3,22 +3,50 @@
   <!-- CONTENT -->
 
   <!-- Task List -->
-  <div class="container ps-4">
+  <div class="container pt-3 ">
     <div class="row">
-      <% if (locals.datas) { %>
-        <ul class="list-group list-group-horizontal">
-          <% for( let i=0; i < datas.length; i++ ) { %>
-            <li class="list-group-item col-lg-5 col-sm-5 ">
-              <%= datas.taskList[i] %>
-            </li>
-            <li class="list-group-item col-lg-5 col-sm-5 ">
-              <%= datas.dateList[i] %>
-            </li>
-            <li class="list-group-item col-lg-2 col-sm-2 ">Status</li>
-            <li class="list-group-item col-lg-2 col-sm-2 ">Actions</li>
-            <% } %>
-        </ul>
-        <% } %>
+      <div class="col">
+        <table class="table">
+          <thead>
+            <tr class="">
+              <th scope="col">#</th>
+              <th scope="col">Task</th>
+              <th scope="col">Due To</th>
+              <th scope="col">Task Status</th>
+              <th scope="col">Edit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if (locals.tasksList) { %>
+              <% tasksList.forEach(task=> { %>
+                <tr>
+                  <th scope="row">1</th>
+                  <td class="">
+                    <%= task.task %>
+                  </td>
+                  <td class="">
+                    <%= task.dueTo %>
+                  </td>
+                  <td class="">
+                    <%= task.taskStatus %>
+                  </td>
+                  <td class="text-end">
+                    <form class="btn btn-success rounded-pill">
+                      <i class="bi bi-check-circle"></i>
+                    </form>
+                    <form class="btn btn-danger rounded-pill">
+                      <i class="bi bi-trash"></i>
+                    </form>
+                    <form class="btn btn-info rounded-pill">Details</form>
+                  </td>
+                </tr>
+                <% }) %>
+                  <% } %>
+
+
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
   <!-- End Of Task List -->

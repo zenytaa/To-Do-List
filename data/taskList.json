@@ -1,0 +1,12 @@
+[
+  {
+    "task": "Nonton theater",
+    "dueTo": "2023-11-11",
+    "taskStatus": "completed"
+  },
+  {
+    "task": "makan bareng Oniel",
+    "dueTo": "2023-11-30",
+    "taskStatus": "uncompleted"
+  }
+]
