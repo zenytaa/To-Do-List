@@ -1,12 +1,6 @@
 [
-  {
-    "task": "Nonton theater",
-    "dueTo": "2023-11-11",
-    "taskStatus": "completed"
-  },
-  {
-    "task": "makan bareng Oniel",
-    "dueTo": "2023-11-30",
-    "taskStatus": "uncompleted"
-  }
+  { "task": "Fiony Alveria", "dueTo": "2023-11-18" },
+  { "task": "Fiony Alveria", "dueTo": "2023-11-28" },
+  { "task": "", "dueTo": "" },
+  { "task": "Gabriella Abigail", "dueTo": "2023-11-23" }
 ]

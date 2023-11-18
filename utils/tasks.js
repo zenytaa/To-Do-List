@@ -16,4 +16,26 @@ const readTasks = () => {
   return tasks;
 };
 
-export { readTasks };
+const findTask = (thisTask) => {
+  const tasks = readTasks();
+  const task = tasks.find((t) => t.task === thisTask);
+  return task;
+};
+
+const saveTasks = (tasks) => {
+  fs.writeFileSync("data/taskList.json", JSON.stringify(tasks));
+};
+
+const addTask = (task) => {
+  const tasks = readTasks();
+  tasks.push(task);
+  saveTasks(tasks);
+};
+
+const deleteTask = (task) => {
+  const tasks = readTasks();
+  const filteredTasks = tasks.filter((t) => t.task !== task);
+  saveTasks(filteredTasks);
+};
+
+export { readTasks, addTask, findTask, deleteTask };

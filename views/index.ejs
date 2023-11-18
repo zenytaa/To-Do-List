@@ -12,44 +12,49 @@
               <th scope="col">#</th>
               <th scope="col">Task</th>
               <th scope="col">Due To</th>
-              <th scope="col">Task Status</th>
               <th scope="col">Edit</th>
             </tr>
           </thead>
           <tbody>
             <% if (locals.tasksList) { %>
-              <% tasksList.forEach(task=> { %>
+              <% tasksList.forEach((t, i)=> { i++ %>
                 <tr>
-                  <th scope="row">1</th>
+                  <th scope="row">
+                    <%= i++ %>
+                  </th>
                   <td class="">
-                    <%= task.task %>
+                    <%= t.task %>
                   </td>
                   <td class="">
-                    <%= task.dueTo %>
-                  </td>
-                  <td class="">
-                    <%= task.taskStatus %>
+                    <%= t.dueTo %>
                   </td>
                   <td class="text-end">
-                    <form class="btn btn-success rounded-pill">
+                    <button id="checklist-btn" type="button" class="btn btn-success rounded-pill">
                       <i class="bi bi-check-circle"></i>
-                    </form>
-                    <form class="btn btn-danger rounded-pill">
+                    </button>
+                    <a href="/edit/<%= t.task %>" id="edit-btn" type="button" class="edit-btn btn btn-info rounded-pill"
+                      data-bs-toggle="modal" data-bs-target="#editModal">
+                      <i class="bi bi-pencil-square"></i>
+                    </a>
+                    <a href="/delete/<%= t.task %>" id="delete-btn" type="button" class="btn btn-danger rounded-pill">
                       <i class="bi bi-trash"></i>
-                    </form>
-                    <form class="btn btn-info rounded-pill">Details</form>
+                    </a>
                   </td>
+                  <%- include('./edit-task.ejs') %>
                 </tr>
                 <% }) %>
-                  <% } %>
-
-
+                  <% } else {%>
+                    <tr>
+                      <td>hahaha</td>
+                    </tr>
+                    <% } %>
           </tbody>
         </table>
       </div>
     </div>
   </div>
   <!-- End Of Task List -->
+
 
   <!-- END OF CONTENT -->
   <%- include('partials/footer.ejs') %>

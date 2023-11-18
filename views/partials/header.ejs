@@ -11,36 +11,26 @@
 </head>
 
 <body>
-  <div class="container" style="border: 2px solid black;">
+  <div id="main-container" class="container" style="border: 2px solid black;">
     <h1 class="text-center">To Do List</h1>
 
-    <!-- ADD TODO LIST -->
-    <div class="container mb-3">
-      <form action="/" method="POST">
-        <div class="row d-flex gap-lg-4">
-          <div class="col-lg-5 py-2">
-            <input type="text" class="form-control" name="inputTask" placeholder="Add task.." aria-label="Add task..">
-          </div>
-          <div class="col-lg-5 py-2">
-            <input type="date" class="form-control" name="inputDate" placeholder="Add due" aria-label="Add due">
-          </div>
-          <div class="col py-2 text-lg-end text-sm-center">
-            <button class="btn btn-outline-secondary rounded-pill" type="submit" value="Submit" id="button-addon1">
-              Add task
-            </button>
-          </div>
-        </div>
-      </form>
-    </div>
-    <!-- END OF ADD TODO LIST -->
+    <%- include('../add-task.ejs') %>
 
-    <div class="container">
-      <form action="">
-        <div class="row">
-          <div class="d-grid d-md-flex justify-content-md-between">
-            <button class="btn btn-outline-secondary rounded-pill" type="button">Filter</button>
-            <button class="btn btn-outline-danger rounded-pill" type="button">Delete all</button>
+      <div class="container">
+        <% if (msg.length !==0) { %>
+          <div class="alert alert-success" role="alert">
+            <%= msg %>
           </div>
-        </div>
-      </form>
-    </div>
+          <% } %>
+      </div>
+
+      <div class="container">
+        <form action="">
+          <div class="row">
+            <div class="d-grid d-md-flex justify-content-md-between">
+              <button class="btn btn-outline-secondary rounded-pill" type="button">Filter</button>
+              <button class="btn btn-outline-danger rounded-pill" type="button">Delete all</button>
+            </div>
+          </div>
+        </form>
+      </div>
