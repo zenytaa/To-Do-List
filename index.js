@@ -51,7 +51,11 @@ app.get("/delete/:task", (req, res) => {
 app.get("/edit/:task", (req, res) => {
   const task = findTask(req.params.task);
   console.log(`Ini task yang di edit${task}`);
-  res.render("edit-task", { task });
+  // res.render("edit-task", { task });
+});
+
+app.post("/update", (req, res) => {
+  res.send(req.body);
 });
 
 app.listen(port, () => {
