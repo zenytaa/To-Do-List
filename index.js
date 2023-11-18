@@ -3,7 +3,13 @@ import bodyParser from "body-parser";
 import session from "express-session";
 import cookieParser from "cookie-parser";
 import flash from "connect-flash";
-import { readTasks, addTask, findTask, deleteTask } from "./utils/tasks.js";
+import {
+  readTasks,
+  addTask,
+  findTask,
+  deleteTask,
+  updateTasks,
+} from "./utils/tasks.js";
 
 const app = express();
 const port = 3000;
@@ -48,14 +54,10 @@ app.get("/delete/:task", (req, res) => {
   res.redirect("/");
 });
 
-app.get("/edit/:task", (req, res) => {
-  const task = findTask(req.params.task);
-  console.log(`Ini task yang di edit${task}`);
-  // res.render("edit-task", { task });
-});
-
 app.post("/update", (req, res) => {
-  res.send(req.body);
+  updateTasks(req.body);
+  req.flash("msg", "Task updated successfuly!");
+  res.redirect("/");
 });
 
 app.listen(port, () => {

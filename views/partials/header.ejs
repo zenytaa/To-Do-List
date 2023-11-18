@@ -11,7 +11,7 @@
 </head>
 
 <body>
-  <div id="main-container" class="container" style="border: 2px solid black;">
+  <div id="main-container" class="container " style="border: 2px solid black;">
     <h1 class="text-center">To Do List</h1>
 
     <%- include('../add-task.ejs') %>
@@ -22,15 +22,4 @@
             <%= msg %>
           </div>
           <% } %>
-      </div>
-
-      <div class="container">
-        <form action="">
-          <div class="row">
-            <div class="d-grid d-md-flex justify-content-md-between">
-              <button class="btn btn-outline-secondary rounded-pill" type="button">Filter</button>
-              <button class="btn btn-outline-danger rounded-pill" type="button">Delete all</button>
-            </div>
-          </div>
-        </form>
       </div>

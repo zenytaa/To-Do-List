@@ -1,1 +1,5 @@
-[{"task":"aku adalah superman","dueTo":"2023-11-22"},{"task":"makan bareng ella","dueTo":"2023-11-15"}]
+[
+  { "task": "doing stuff", "dueTo": "2023-11-14" },
+  { "task": "go to market", "dueTo": "2023-11-20" },
+  { "task": "update task", "dueTo": "2023-11-25" }
+]

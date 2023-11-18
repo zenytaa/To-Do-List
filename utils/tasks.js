@@ -38,4 +38,13 @@ const deleteTask = (task) => {
   saveTasks(filteredTasks);
 };
 
-export { readTasks, addTask, findTask, deleteTask };
+const updateTasks = (newTask) => {
+  const tasks = readTasks();
+  // delete task that has same as oldTask
+  const filteredTasks = tasks.filter((t) => t.task !== newTask.oldTask);
+  delete newTask.oldTask;
+  filteredTasks.push(newTask);
+  saveTasks(filteredTasks);
+};
+
+export { readTasks, addTask, findTask, deleteTask, updateTasks };

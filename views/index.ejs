@@ -32,47 +32,14 @@
                     <button id="checklist-btn" type="button" class="btn btn-success rounded-pill">
                       <i class="bi bi-check-circle"></i>
                     </button>
-                    <a href="/edit/<%= t.task %>" id="edit-btn" type="button" class="edit-btn btn btn-info rounded-pill"
-                      data-bs-toggle="modal" data-bs-target="#edit-modal">
+                    <a href="/edit/<%=t.task %>" id="edit-btn" type="submit" class="edit-btn btn btn-info rounded-pill"
+                      data-bs-toggle="modal" data-bs-target="#edit-modal-<%=i%>">
                       <i class="bi bi-pencil-square"></i>
                     </a>
                     <a href="/delete/<%= t.task %>" id="delete-btn" type="button" class="btn btn-danger rounded-pill">
                       <i class="bi bi-trash"></i>
                     </a>
                   </td>
-                  <div class="container modal-edit">
-                    <!-- Modal -->
-                    <div class="modal fade" id="edit-modal" tabindex="-1">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                          </div>
-                          <div class="modal-body">
-                            <!-- Update Form -->
-                            <form action="/update" method="POST">
-                              <input type="hidden" name="oldTask" value="<%= t.task %>">
-                              <div class="row ">
-                                <div class="col-lg-5 py-2">
-                                  <input type="text" class="form-control" name="task" value="<%= t.task %>">
-                                </div>
-                                <div class="col-lg-5 py-2">
-                                  <input type="date" class="form-control" name="dueTo" value="<%= t.dueTo %>">
-                                </div>
-                              </div>
-                          </div>
-                          </form>
-                          <!-- End of Update Form -->
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary rounded-pill"
-                              data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-info rounded-pill">Save changes</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </tr>
                 <% }) %>
                   <% } else {%>
@@ -85,8 +52,11 @@
       </div>
     </div>
   </div>
-  <!-- End Of Task List -->
-  <%# include('./edit-task.ejs') %>
 
+  <!-- Modal -->
+
+  <!-- End Of Task List -->
+
+  <%- include('./edit-task.ejs') %>
     <!-- END OF CONTENT -->
     <%- include('partials/footer.ejs') %>
